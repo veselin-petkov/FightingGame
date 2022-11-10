@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BattleTest {
 
     @Test
-    @DisplayName("Warrior vs Knight, Winner should be Knight")
+    @DisplayName("1. Fight: Warrior vs Knight, Winner should be Knight")
     void warriorVsKnight() {
 //        "1. Fight": [
 //        prepare_test(middle_code='''carl = Warrior()
@@ -24,7 +24,7 @@ class BattleTest {
     }
 
     @Test
-    @DisplayName("Knight vs Warrior, Winner should be Knight")
+    @DisplayName("2. Fight: Knight vs Warrior, Winner should be Knight")
     void knightVsWarrior() {
 //        "2. Fight": [
 //        prepare_test(middle_code='''ramon = Knight()
@@ -39,7 +39,7 @@ class BattleTest {
     }
 
     @Test
-    @DisplayName("Warrior vs Warrior, Winner should be Warrior One")
+    @DisplayName("3. Fight: Warrior vs Warrior, Winner should be Warrior One")
     void warriorVsWarrior() {
 //        "3. Fight": [
 //        prepare_test(middle_code='''bob = Warrior()
@@ -55,7 +55,7 @@ class BattleTest {
     }
 
     @Test
-    @DisplayName("Knight vs Warrior, Knight should be alive")
+    @DisplayName("4. Fight: Knight vs Warrior, Knight should be alive")
     void knightVsWarriorCheckIfAliveKnight() {
 //        "4. Fight": [
 //        prepare_test(middle_code='''zeus = Knight()
@@ -72,7 +72,7 @@ class BattleTest {
 
 
     @Test
-    @DisplayName("Warrior vs Warrior, Warrior Two should be dead")
+    @DisplayName("5. Fight: Warrior vs Warrior, Warrior Two should be dead")
     void warriorVsWarriorCheckIfAliveWarriorTwo() {
 //      "5. Fight": [
 //        prepare_test(middle_code='''husband = Warrior()
@@ -88,7 +88,7 @@ class BattleTest {
     }
 
     @Test
-    @DisplayName("Warrior vs Knight, Knight should be Alive")
+    @DisplayName("6. Fight: Warrior vs Knight, Knight should be Alive")
     void warriorVsKnightCheckIfAliveKnight() {
 //    "6. Fight": [
 //        prepare_test(middle_code='''dragon = Warrior()
@@ -104,7 +104,7 @@ class BattleTest {
     }
 
     @Test
-    @DisplayName("Warrior vs Knight Vs Warrior, Knight should lose second battle")
+    @DisplayName("7. Fight: Warrior vs Knight Vs Warrior, Knight should lose second battle")
     void warriorVsKnightVsWarriorCheckIfKnightLosesSecondBattle() {
 //    "7. Fight": [
 //        prepare_test(middle_code='''unit_1 = Warrior()
