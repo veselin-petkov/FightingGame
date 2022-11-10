@@ -1,17 +1,22 @@
 package org.example.characters;
 
 public class Warrior {
-    private int health = 50;
-    private int attack = 5;
+    private int health;
+    private int attack;
 
 
     public Warrior() {
+        this.health = 50;
+        this.attack = 5;
+    }
+
+    public Warrior(int health, int attack) {
+        this.health = health;
+        this.attack = attack;
     }
 
     public boolean isAlive() {
-        if (health > 0) {
-            return true;
-        } else return false;
+        return health > 0;
     }
 
     public int getHealth() {

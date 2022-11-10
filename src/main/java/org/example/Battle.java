@@ -1,8 +1,10 @@
-package org.example.characters;
+package org.example;
+
+import org.example.characters.Warrior;
 
 public class Battle {
 
-    public static boolean fight(Warrior warrior1,Warrior warrior2) {
+    public static boolean fight(Warrior warrior1, Warrior warrior2) {
         while (warrior1.isAlive()) {
 
             warrior2.setHealth(warrior2.getHealth()- warrior1.getAttack());

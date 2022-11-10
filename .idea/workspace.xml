@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0521f5e9-a557-4691-bd31-30b36fdfb4cd" name="Changes" comment="fixing?">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WarriorKnightGame.iml" beforeDir="false" />
+    <list default="true" id="ed2b2df8-511d-4149-9791-392d2b498007" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Battle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/characters/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/characters/BattleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Battle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/characters/Knight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/characters/Warrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/characters/BattleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/characters/BattleTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +69,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Veselin Petkov\IdeaProjects\WarriorKnightGame\src\main\java\org\example" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.example.characters" />
