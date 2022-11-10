@@ -9,8 +9,5 @@
         <module name="WarriorKnightGame" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="WarriorKnightGame" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
