@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed2b2df8-511d-4149-9791-392d2b498007" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Battle.java" beforeDir="false" />
+    <list default="true" id="ed2b2df8-511d-4149-9791-392d2b498007" name="Changes" comment="uploading game">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Army.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Fight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/BattleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Battle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Battle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Knight.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/characters/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/characters/BattleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Battle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/characters/Knight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/characters/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/characters/FightTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Battle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Battle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/characters/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/characters/BattleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/characters/BattleTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/characters/BattleTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +31,17 @@
       </list>
     </option>
   </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,7 +71,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -74,84 +82,82 @@
       <recent name="C:\Users\Veselin Petkov\IdeaProjects\WarriorKnightGame\src\main\java\org\example" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example" />
       <recent name="org.example.characters" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.BattleTest">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="WarriorKnightGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.combat.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BattleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WarriorKnightGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.characters.*" />
+          <option name="PATTERN" value="org.example.combat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.characters" />
-      <option name="MAIN_CLASS_NAME" value="org.example.characters.BattleTest" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleTest.knightVsWarrior" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleTest.parameterizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WarriorKnightGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.characters.*" />
+          <option name="PATTERN" value="org.example.combat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.characters" />
-      <option name="MAIN_CLASS_NAME" value="org.example.characters.BattleTest" />
-      <option name="METHOD_NAME" value="knightVsWarrior" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
+      <option name="METHOD_NAME" value="parameterizedTest(org.example.Army,org.example.Army,boolean)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleTest.knightVsWarriorCheckIfAliveKnight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleTest.sevenKnightVsNineWarriors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WarriorKnightGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.characters.*" />
+          <option name="PATTERN" value="org.example.combat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.characters" />
-      <option name="MAIN_CLASS_NAME" value="org.example.characters.BattleTest" />
-      <option name="METHOD_NAME" value="knightVsWarriorCheckIfAliveKnight" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
+      <option name="METHOD_NAME" value="sevenKnightVsNineWarriors" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleTest.warriorVsKnightCheckIfAliveKnight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleTest.sevenKnightsVsNineWarriors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WarriorKnightGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.characters.*" />
+          <option name="PATTERN" value="org.example.combat.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example.characters" />
-      <option name="MAIN_CLASS_NAME" value="org.example.characters.BattleTest" />
-      <option name="METHOD_NAME" value="warriorVsKnightCheckIfAliveKnight" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BattleTest.warriorVsKnightVsWarriorCheckIfKnightLosesSecondBattle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WarriorKnightGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.characters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.characters" />
-      <option name="MAIN_CLASS_NAME" value="org.example.characters.BattleTest" />
-      <option name="METHOD_NAME" value="warriorVsKnightVsWarriorCheckIfKnightLosesSecondBattle" />
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
+      <option name="METHOD_NAME" value="sevenKnightsVsNineWarriors" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -160,17 +166,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BattleTest" />
-        <item itemvalue="JUnit.BattleTest.warriorVsKnightVsWarriorCheckIfKnightLosesSecondBattle" />
-        <item itemvalue="JUnit.BattleTest.warriorVsKnightCheckIfAliveKnight" />
-        <item itemvalue="JUnit.BattleTest.knightVsWarriorCheckIfAliveKnight" />
-        <item itemvalue="JUnit.BattleTest.knightVsWarrior" />
+        <item itemvalue="JUnit.BattleTest.parameterizedTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.BattleTest.sevenKnightsVsNineWarriors" />
+        <item itemvalue="JUnit.BattleTest.sevenKnightVsNineWarriors" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0521f5e9-a557-4691-bd31-30b36fdfb4cd" name="Changes" comment="" />
+      <changelist id="ed2b2df8-511d-4149-9791-392d2b498007" name="Changes" comment="uploading game" />
       <created>1668008800641</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -180,6 +186,8 @@
       <workItem from="1668034864927" duration="2604000" />
       <workItem from="1668094754398" duration="846000" />
       <workItem from="1668095671819" duration="303000" />
+      <workItem from="1668180731273" duration="3115000" />
+      <workItem from="1668286366024" duration="7332000" />
     </task>
     <task id="LOCAL-00001" summary="uploading first game version">
       <created>1668095386487</created>
@@ -195,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668095843280</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="uploading game">
+      <created>1668102949143</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668102949143</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +241,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="uploading first game version" />
-    <option name="LAST_COMMIT_MESSAGE" value="uploading first game version" />
+    <MESSAGE value="uploading game" />
+    <option name="LAST_COMMIT_MESSAGE" value="uploading game" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/WarriorKnightGame$Main.ic" NAME="Main Coverage Results" MODIFIED="1668293624146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.*</FILTER>
+    </SUITE>
   </component>
 </project>

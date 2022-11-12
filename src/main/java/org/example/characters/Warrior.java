@@ -15,6 +15,10 @@ public class Warrior {
         this.attack = attack;
     }
 
+    public static void attack(Warrior warrior1, Warrior warrior2) {
+        warrior2.setHealth(warrior2.getHealth() - warrior1.getAttack());
+    }
+
     public boolean isAlive() {
         return health > 0;
     }
