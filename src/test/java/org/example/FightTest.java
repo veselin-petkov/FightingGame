@@ -1,19 +1,15 @@
-package org.example.characters;
+package org.example;
 
-import org.example.Army;
-import org.example.combat.Battle;
+import org.example.characters.Defender;
+import org.example.characters.Knight;
+import org.example.characters.Warrior;
+
 import org.example.combat.Fight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class FightTest {
 
