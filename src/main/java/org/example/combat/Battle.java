@@ -10,6 +10,7 @@ public class Battle extends Fight {
         while (true) {
 
             boolean fightResult = fight(army1.getTroops().get(army1Counter), army2.getTroops().get(army2Counter));
+
             System.out.println("Army1: " + army1.getTroops().get(army1Counter).getClass().getSimpleName() + " " + army1Counter
                     + " vs Army2: " + army2.getTroops().get(army2Counter).getClass().getSimpleName() + " " + army2Counter
                     + " |        Winner: " + (fightResult ? "One" : "Two") + "   Remaining health: "
@@ -22,9 +23,7 @@ public class Battle extends Fight {
             } else if (army2Counter + 1 == army2.getTroops().size() && fightResult) {
                 break;
             } else army1Counter++;
-
         }
         return true;
     }
-
 }

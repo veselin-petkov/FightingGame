@@ -1,14 +1,28 @@
 package org.example.characters;
 
+import org.example.Army;
+import org.example.combat.Battle;
 import org.example.combat.Fight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class FightTest {
 
+    public static class Rookie extends Warrior {
+        @Override
+        public int getAttack() {
+            return 1;
+        }
+    }
     private Warrior warrior1;
     private Warrior warrior2;
     private Warrior knight;
@@ -68,5 +82,22 @@ class FightTest {
         assertFalse(Fight.fight(knight, warrior2));
     }
 
+    @Test
+    @DisplayName("8. Fight: Defender vs Rookie, Defender health must 60")
+    void defenderVsRookie() {
+        Defender defender = new Defender();
+        Rookie rookie = new Rookie();
+        Fight.fight(defender, rookie);
+        assertEquals(defender.getHealth(),60);
+    }
+
+    @Test
+    @DisplayName("9. Fight: Defender Vs Rookie Vs Warrior, Defender should beat Warrior")
+    void defenderVsRookieVsWarrior() {
+        Defender defender = new Defender();
+        Rookie rookie = new Rookie();
+        Fight.fight(defender, rookie);
+        assertTrue(Fight.fight(defender, warrior1));
+    }
 
 }

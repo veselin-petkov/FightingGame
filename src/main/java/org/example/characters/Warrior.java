@@ -1,5 +1,7 @@
 package org.example.characters;
 
+import java.util.Objects;
+
 public class Warrior {
     private int health;
     private int attack;
@@ -15,8 +17,17 @@ public class Warrior {
         this.attack = attack;
     }
 
-    public static void attack(Warrior warrior1, Warrior warrior2) {
-        warrior2.setHealth(warrior2.getHealth() - warrior1.getAttack());
+
+    public void hit(Warrior opponent){
+        int damageTaken = opponent.getHealth();
+        opponent.receiveDamage(getAttack());
+        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
+                + " for " + (damageTaken-opponent.getHealth()) + " damage |"
+                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
+    }
+
+    public void receiveDamage(int attack) {
+        setHealth(getHealth()-attack);
     }
 
     public boolean isAlive() {
@@ -37,5 +48,18 @@ public class Warrior {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Warrior warrior = (Warrior) o;
+        return health == warrior.health && attack == warrior.attack;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(health, attack);
     }
 }

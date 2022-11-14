@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.characters.Defender;
 import org.example.combat.Battle;
 import org.example.characters.Knight;
 import org.example.characters.Warrior;
@@ -31,7 +32,11 @@ class BattleTest {
                 arguments(new Army().addUnits(Warrior::new, 5), new Army().addUnits(Warrior::new, 7), false),
                 arguments(new Army().addUnits(Warrior::new, 20), new Army().addUnits(Warrior::new, 21), true),
                 arguments(new Army().addUnits(Warrior::new, 10), new Army().addUnits(Warrior::new, 11), true),
-                arguments(new Army().addUnits(Warrior::new, 11), new Army().addUnits(Warrior::new, 7), true)
+                arguments(new Army().addUnits(Warrior::new, 11), new Army().addUnits(Warrior::new, 7), true),
+                arguments(new Army().addUnits(Warrior::new, 5).addUnits(Defender::new,4).addUnits(Defender::new,5), new Army().addUnits(Warrior::new, 4), true),
+                arguments(new Army().addUnits(Defender::new, 5).addUnits(Warrior::new,20).addUnits(Defender::new, 4), new Army().addUnits(Warrior::new, 21), true),
+                arguments(new Army().addUnits(Warrior::new, 10).addUnits(Defender::new,5).addUnits(Warrior::new, 5), new Army().addUnits(Warrior::new, 5), true),
+                arguments(new Army().addUnits(Defender::new, 2).addUnits(Warrior::new,1).addUnits(Defender::new, 1), new Army().addUnits(Warrior::new, 5), false)
         );
     }
 
