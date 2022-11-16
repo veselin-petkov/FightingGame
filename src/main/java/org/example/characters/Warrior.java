@@ -18,16 +18,16 @@ public class Warrior {
     }
 
 
-    public void hit(Warrior opponent){
+    public void hit(Warrior opponent) {
         int damageTaken = opponent.getHealth();
         opponent.receiveDamage(getAttack());
         System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-                + " for " + (damageTaken-opponent.getHealth()) + " damage |"
+                + " for " + (damageTaken - opponent.getHealth()) + " damage |"
                 + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
     }
 
     public void receiveDamage(int attack) {
-        setHealth(getHealth()-attack);
+        setHealth(getHealth() - attack);
     }
 
     public boolean isAlive() {
@@ -61,5 +61,10 @@ public class Warrior {
     @Override
     public int hashCode() {
         return Objects.hash(health, attack);
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName();
     }
 }

@@ -5,32 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0a1807b-25eb-4a27-a14e-8f7f5c080057" name="Changes" comment="refactored hit and adding defender class">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/1/61dd4f300bf74a0b66c9b44b2176620cac243f91" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdf818fb9a5362495b87d39f90f1c1ca5c215796" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/org/example/FightTest$Rookie.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/org/example/FightTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Vampire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/characters/FightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/FightTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/characters/FightTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Defender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Defender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/characters/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/characters/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/combat/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/combat/Fight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/BattleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/FightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/FightTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Combat/Fight.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Combat/Fight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/characters/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/characters/Warrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/FightTest$Rookie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/FightTest$Rookie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/FightTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/FightTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HdR5HRo0SKoRDgGW3QVtzVlC6v" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="RunManager" selected="JUnit.BattleTest">
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.FightTest.vampireTest">
     <configuration name="BattleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WarriorKnightGame" />
       <extension name="coverage">
@@ -42,6 +63,38 @@
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleTest.elevenWarriorsVsSevenWarriors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WarriorKnightGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
+      <option name="METHOD_NAME" value="elevenWarriorsVsSevenWarriors" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BattleTest.tenWarriorsVsElevenWarriors" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WarriorKnightGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.BattleTest" />
+      <option name="METHOD_NAME" value="tenWarriorsVsElevenWarriors" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -61,15 +114,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FightTest.vampireTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WarriorKnightGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.FightTest" />
+      <option name="METHOD_NAME" value="vampireTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.FightTest.vampireTest" />
         <item itemvalue="JUnit.BattleTest" />
         <item itemvalue="JUnit.FightTest" />
+        <item itemvalue="JUnit.BattleTest.tenWarriorsVsElevenWarriors" />
+        <item itemvalue="JUnit.BattleTest.elevenWarriorsVsSevenWarriors" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="refactored hit and adding defender class">
+      <created>1668457261756</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668457261756</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0a1807b-25eb-4a27-a14e-8f7f5c080057" name="Changes" comment="refactored hit and adding defender class" />
+      <created>1668612791792</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668612791792</updated>
+      <workItem from="1668612793046" duration="5061000" />
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -81,6 +173,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactored hit and adding defender class" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored hit and adding defender class" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/WarriorKnightGame$Main.ic" NAME="Main Coverage Results" MODIFIED="1668293624146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

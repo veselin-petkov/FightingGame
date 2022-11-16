@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.characters.Defender;
 import org.example.characters.Knight;
+import org.example.characters.Vampire;
 import org.example.characters.Warrior;
 
 import org.example.combat.Fight;
@@ -13,12 +14,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class FightTest {
 
-    public static class Rookie extends Warrior {
+    static class Rookie extends Warrior {
         @Override
         public int getAttack() {
             return 1;
         }
     }
+
     private Warrior warrior1;
     private Warrior warrior2;
     private Warrior knight;
@@ -84,7 +86,7 @@ class FightTest {
         Defender defender = new Defender();
         Rookie rookie = new Rookie();
         Fight.fight(defender, rookie);
-        assertEquals(defender.getHealth(),60);
+        assertEquals(defender.getHealth(), 60);
     }
 
     @Test
@@ -96,4 +98,11 @@ class FightTest {
         assertTrue(Fight.fight(defender, warrior1));
     }
 
+    @Test
+    @DisplayName("10. Fight: Defender Vs Rookie Vs Warrior, Defender should beat Warrior")
+    void vampireTest() {
+        Vampire vampire = new Vampire();
+        Warrior warrior = new Warrior();
+        assertTrue(Fight.fight(vampire, warrior));
+    }
 }

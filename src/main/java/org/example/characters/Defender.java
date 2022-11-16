@@ -13,8 +13,8 @@ public class Defender extends Warrior {
 
     @Override
     public void receiveDamage(int attack) {
-        if (attack-getDefense()>0){
-            super.receiveDamage(attack-getDefense());
+        if (attack - getDefense() > 0) {
+            super.receiveDamage(attack - getDefense());
         } else super.receiveDamage(0);
 
     }
