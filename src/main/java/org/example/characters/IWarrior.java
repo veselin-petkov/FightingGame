@@ -1,19 +1,6 @@
 package org.example.characters;
 
-
-public interface Command {
-}
-
-public enum CharacterHitCommand implements Command {
-    INSTANCE
-}
-
-public interface CanProcessCommand {
-    default void processCommand(Command command, IWarrior sender) {
-    }
-}
-
-public interface IWarrior extends CanProcessCommand {
+public interface IWarrior {
 
     int getHealth();
 
@@ -28,7 +15,12 @@ public interface IWarrior extends CanProcessCommand {
     int getAttack();
 
     default int hit(IWarrior opponent) {
+        int healthBefore = opponent.getHealth();
         opponent.receiveDamage(getAttack());
-        return 0;
+        int damageTaken = healthBefore -opponent.getHealth();
+        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
+                + " for " + damageTaken  + " damage |"
+                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
+        return damageTaken;
     }
 }

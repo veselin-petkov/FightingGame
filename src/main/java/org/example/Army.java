@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.characters.*;
+import org.example.services.CanProcessCommand;
+import org.example.services.CharacterHitCommand;
+import org.example.services.Command;
 
 import java.util.*;
 import java.util.function.Supplier;
@@ -9,7 +12,7 @@ public class Army {
 
     static class WarriorInArmy implements IWarrior, HasWarriorBehind, CanProcessCommand {
         IWarrior warrior;
-        IWarrior nextWarrior;
+        WarriorInArmy nextWarrior;
 
         public WarriorInArmy(IWarrior warrior) {
             this.warrior = warrior;
@@ -56,7 +59,7 @@ public class Army {
             return nextWarrior;
         }
 
-        private void setNextWarrior(IWarrior nextWarrior) {
+        private void setNextWarrior(WarriorInArmy nextWarrior) {
             this.nextWarrior = nextWarrior;
         }
     }
