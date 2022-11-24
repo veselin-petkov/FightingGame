@@ -6,6 +6,8 @@ public class Defender extends Warrior {
 
     private int defense;
 
+    private final int INITIALHEALTH = 60;
+
     public Defender() {
         super(60, 3);
         this.defense = 2;
@@ -13,10 +15,7 @@ public class Defender extends Warrior {
 
     @Override
     public void receiveDamage(int attack) {
-        if (attack - getDefense() > 0) {
-            super.receiveDamage(attack - getDefense());
-        } else super.receiveDamage(0);
-
+        super.receiveDamage(Math.max(0, attack - getDefense()));
     }
 
     public int getDefense() {
@@ -33,6 +32,11 @@ public class Defender extends Warrior {
         if (o == null || getClass() != o.getClass()) return false;
         Defender defender = (Defender) o;
         return defense == defender.defense;
+    }
+
+    @Override
+    public int getINITIALHEALTH() {
+        return INITIALHEALTH;
     }
 
     @Override

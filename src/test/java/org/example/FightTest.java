@@ -1,11 +1,8 @@
 package org.example;
 
-import org.example.characters.Defender;
-import org.example.characters.Knight;
-import org.example.characters.Vampire;
-import org.example.characters.Warrior;
+import org.example.characters.*;
 
-import org.example.combat.Fight;
+import org.example.combat.Battle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,25 +32,25 @@ class FightTest {
     @Test
     @DisplayName("1. Fight: Warrior vs Knight, Winner should be Knight")
     void warriorVsKnight() {
-        assertFalse(Fight.fight(warrior1, knight));
+        assertFalse(Battle.fight(warrior1, knight));
     }
 
     @Test
     @DisplayName("2. Fight: Knight vs Warrior, Winner should be Knight")
     void knightVsWarrior() {
-        assertTrue(Fight.fight(knight, warrior1));
+        assertTrue(Battle.fight(knight, warrior1));
     }
 
     @Test
     @DisplayName("3. Fight: Warrior vs Warrior, Winner should be Warrior One")
     void warriorVsWarrior() {
-        assertTrue(Fight.fight(warrior1, warrior2));
+        assertTrue(Battle.fight(warrior1, warrior2));
     }
 
     @Test
     @DisplayName("4. Fight: Knight vs Warrior, Knight should be alive")
     void knightVsWarriorCheckIfAliveKnight() {
-        Fight.fight(knight, warrior1);
+        Battle.fight(knight, warrior1);
         assertTrue(knight.isAlive());
     }
 
@@ -62,22 +59,22 @@ class FightTest {
     @DisplayName("5. Fight: Warrior vs Warrior, Warrior Two should be dead")
     void warriorVsWarriorCheckIfAliveWarriorTwo() {
 
-        Fight.fight(warrior1, warrior2);
+        Battle.fight(warrior1, warrior2);
         assertFalse(warrior2.isAlive());
     }
 
     @Test
     @DisplayName("6. Fight: Warrior vs Knight, Knight should be Alive")
     void warriorVsKnightCheckIfAliveKnight() {
-        Fight.fight(warrior1, knight);
+        Battle.fight(warrior1, knight);
         assertTrue(knight.isAlive());
     }
 
     @Test
     @DisplayName("7. Fight: Warrior vs Knight Vs Warrior, Knight should lose second battle")
     void warriorVsKnightVsWarriorCheckIfKnightLosesSecondBattle() {
-        Fight.fight(warrior1, knight);
-        assertFalse(Fight.fight(knight, warrior2));
+        Battle.fight(warrior1, knight);
+        assertFalse(Battle.fight(knight, warrior2));
     }
 
     @Test
@@ -85,7 +82,7 @@ class FightTest {
     void defenderVsRookie() {
         Defender defender = new Defender();
         Rookie rookie = new Rookie();
-        Fight.fight(defender, rookie);
+        Battle.fight(defender, rookie);
         assertEquals(defender.getHealth(), 60);
     }
 
@@ -94,8 +91,8 @@ class FightTest {
     void defenderVsRookieVsWarrior() {
         Defender defender = new Defender();
         Rookie rookie = new Rookie();
-        Fight.fight(defender, rookie);
-        assertTrue(Fight.fight(defender, warrior1));
+        Battle.fight(defender, rookie);
+        assertTrue(Battle.fight(defender, warrior1));
     }
 
     @Test
@@ -103,6 +100,14 @@ class FightTest {
     void vampireTest() {
         Vampire vampire = new Vampire();
         Warrior warrior = new Warrior();
-        assertTrue(Fight.fight(vampire, warrior));
+        assertTrue(Battle.fight(vampire, warrior));
+    }
+    @Test
+    @DisplayName("11. Fight: Healer Vs Warrior, Warrior should beat Healer")
+    void healerTest() {
+        Healer healer = new Healer();
+        Warrior warrior = new Warrior();
+        System.out.println(healer.getAttack());
+        assertFalse(Battle.fight(healer, warrior));
     }
 }

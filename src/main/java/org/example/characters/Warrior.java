@@ -2,9 +2,10 @@ package org.example.characters;
 
 import java.util.Objects;
 
-public class Warrior {
+public class Warrior implements IWarrior {
     private int health;
     private int attack;
+    private final int INITIALHEALTH = 50;
 
 
     public Warrior() {
@@ -17,28 +18,15 @@ public class Warrior {
         this.attack = attack;
     }
 
-
-    public void hit(Warrior opponent) {
-        int damageTaken = opponent.getHealth();
-        opponent.receiveDamage(getAttack());
-        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-                + " for " + (damageTaken - opponent.getHealth()) + " damage |"
-                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
-    }
-
     public void receiveDamage(int attack) {
         setHealth(getHealth() - attack);
-    }
-
-    public boolean isAlive() {
-        return health > 0;
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    protected void setHealth(int health) {
         this.health = health;
     }
 
@@ -48,6 +36,10 @@ public class Warrior {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    public int getINITIALHEALTH() {
+        return INITIALHEALTH;
     }
 
     @Override
