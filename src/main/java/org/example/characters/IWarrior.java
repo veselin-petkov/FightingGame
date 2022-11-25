@@ -14,13 +14,18 @@ public interface IWarrior {
 
     int getAttack();
 
-    default int hit(IWarrior opponent) {
+    default void hit(IWarrior opponent) {
         int healthBefore = opponent.getHealth();
         opponent.receiveDamage(getAttack());
-        int damageTaken = healthBefore -opponent.getHealth();
+        int damageTaken = healthBefore - opponent.getHealth();
         System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-                + " for " + damageTaken  + " damage |"
+                + " for " + damageTaken + " damage |"
                 + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
-        return damageTaken;
+
     }
+
+    default void setHealth(int health){
+        this.setHealth(health);
+    }
+
 }

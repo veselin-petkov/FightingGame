@@ -8,9 +8,10 @@ import org.example.services.Command;
 import java.util.*;
 import java.util.function.Supplier;
 
+
 public class Army {
 
-    static class WarriorInArmy implements IWarrior, HasWarriorBehind, CanProcessCommand {
+   public static class WarriorInArmy implements IWarrior, HasWarriorBehind, CanProcessCommand {
         IWarrior warrior;
         WarriorInArmy nextWarrior;
 
@@ -19,21 +20,30 @@ public class Army {
         }
 
         @Override
-        public int hit(IWarrior opponent) {
-            processCommand(CharacterHitCommand.INSTANCE,this);
-            return warrior.hit(opponent);
+        public void hit(IWarrior opponent) {
+
+          warrior.hit(opponent);
+          processCommand(CharacterHitCommand.HEAL,this);
+        }
+
+        public Warrior unwrap(){
+            return (Warrior) warrior;
+
         }
 
         @Override
-        public void processCommand(Command command, IWarrior sender) {
+        public void processCommand(Command command, WarriorInArmy sender) {
             if (warrior instanceof CanProcessCommand war) {
                 war.processCommand(command, sender);
             }
             if (nextWarrior != null) {
-                nextWarrior.processCommand(command, sender);
+                nextWarrior.processCommand(command, this);
             }
         }
 
+        public void setHealth(int health){
+            warrior.setHealth(health);
+        }
         @Override
         public int getHealth() {
             return warrior.getHealth();
@@ -102,6 +112,12 @@ public class Army {
 
     private Collection<IWarrior> troops = new ArrayList<>();
     private WarriorInArmy lastWarrior;
+
+
+    void removeDead(){
+        troops.removeIf(iWarrior -> !iWarrior.isAlive());
+    }
+
 
     private void addUnits(Warrior warrior) {
         WarriorInArmy wrapped = new WarriorInArmy(warrior);

@@ -4,7 +4,7 @@ import org.example.Army;
 import org.example.characters.IWarrior;
 import org.example.characters.Lancer;
 
-public class Battle{
+public class Battle {
 
     public static boolean fight(IWarrior warrior1, IWarrior warrior2) {
         while (warrior1.isAlive() && warrior2.isAlive()) {
@@ -95,14 +95,18 @@ public class Battle{
     }
 
 
+    public static boolean straightFight(Army army1, Army army2) {
+        var it1 = army1.firstAliveIterator();
+        var it2 = army2.firstAliveIterator();
+
+        while (true) {
+            var fighter1 = it1.next().getClass().getSimpleName();
+            var fighter2 = it2.next().getClass().getSimpleName();
+        }
+    }
 
 
-
-
-
-
-
-//  NOT WORKING
+    //  NOT WORKING
     public static boolean battleNew(Army army1, Army army2) {
         var it1 = army1.firstAliveIterator();
         var it2 = army2.firstAliveIterator();
@@ -118,7 +122,7 @@ public class Battle{
 
             while (true) {
                 if (warrior1 instanceof Lancer)
-                    warrior3.receiveDamage(warrior1.hit(warrior2) / 2);
+                   // warrior3.receiveDamage(warrior1.hit(warrior2) / 2);
 
                 if (warrior2.isAlive()) {
                     warrior2.hit(warrior1);

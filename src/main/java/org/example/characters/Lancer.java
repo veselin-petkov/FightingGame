@@ -10,15 +10,16 @@ public class Lancer extends Warrior {
 
 
     @Override
-    public int hit(IWarrior opponent) {
+    public void hit(IWarrior opponent) {
+        int healthBeforeHit = opponent.getHealth();
 
-        int damageDone = super.hit(opponent);
+        super.hit(opponent);
+        int damageDone = healthBeforeHit - opponent.getHealth();
         if (opponent instanceof HasWarriorBehind opponentWithNext) {
             IWarrior nextWarrior = opponentWithNext.getNextBehind();
             if (nextWarrior != null) {
                 nextWarrior.receiveDamage(damageDone * PIERCING_POWER / 100);
             }
         }
-        return damageDone;
     }
 }

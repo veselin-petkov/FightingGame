@@ -16,7 +16,7 @@ public class Vampire extends Warrior {
     }
 
     @Override
-    public int hit(IWarrior opponent) {
+    public void hit(IWarrior opponent) {
         int healthBeforeHit = opponent.getHealth();
         opponent.receiveDamage(getAttack());
         int leech = 0;
@@ -30,7 +30,6 @@ public class Vampire extends Warrior {
                 + " for " + (healthBeforeHit - opponent.getHealth()) + " damage |"
                 + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth() +
                 " Vampire leeched health: " + leech );
-        return healthBeforeHit - opponent.getHealth();
     }
 
     @Override

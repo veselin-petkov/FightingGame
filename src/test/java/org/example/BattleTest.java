@@ -75,6 +75,16 @@ class BattleTest {
     }
 
     @Test
+    @DisplayName("Test name")
+    void methodName() {
+        Army army1 = new Army().addUnits(Lancer::new, 1).addUnits(Healer::new, 1);
+
+       Army army2 =  new Army().addUnits(Warrior::new, 1).addUnits(Healer::new, 1);
+
+       assertTrue(Battle.fight(army1,army2));
+    }
+
+    @Test
     @DisplayName("1. Battle: 1 Warrior vs 2 Warriors")
     void oneWarriorVsTwoWarriors() {
         Army army1 = new Army();

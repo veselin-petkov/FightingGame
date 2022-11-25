@@ -1,6 +1,11 @@
 package org.example.characters;
 
-public class Healer extends Warrior{
+import org.example.Army;
+import org.example.services.CanProcessCommand;
+import org.example.services.CharacterHitCommand;
+import org.example.services.Command;
+
+public class Healer extends Warrior implements CanProcessCommand {
 
     private int healingPower;
 
@@ -9,16 +14,36 @@ public class Healer extends Warrior{
         this.healingPower = 2;
     }
 
-    public void heal(Warrior warrior){
-        warrior.setHealth(Math.min(warrior.getINITIALHEALTH(), warrior.getHealth())+getHealingPower());
+    @Override
+    public void processCommand(Command command, Army.WarriorInArmy sender) {
+        if (command instanceof CharacterHitCommand) {
+            heal(sender);
+        }
+    }
+
+    public void heal(Army.WarriorInArmy warrior) {
+
+        int healthBefore = warrior.getHealth();
+        //System.out.println("HEALTH BEFORE: " + healthBefore + "    INITIAL HEALTH " + warrior.getINITIALHEALTH());
+        warrior.setHealth(Math.min(warrior.getINITIALHEALTH(), warrior.getHealth() + getHealingPower()));
+        int healedAmount = warrior.getHealth() - healthBefore;
+       // System.out.println("HEALTH AFTER: "+ warrior.getHealth());
+        System.out.println(getClass().getSimpleName() + " heals the " + warrior.getClass().getSimpleName() + " for " + healedAmount);
+
+
     }
 
     @Override
-    public int hit(IWarrior opponent) {
-        return 0;
+    public void hit(IWarrior opponent) {
+       //do nothing because it has no attack points
     }
 
     protected int getHealingPower() {
         return healingPower;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 }

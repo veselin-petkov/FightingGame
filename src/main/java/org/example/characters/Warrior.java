@@ -26,7 +26,7 @@ public class Warrior implements IWarrior {
         return health;
     }
 
-    protected void setHealth(int health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
@@ -49,6 +49,7 @@ public class Warrior implements IWarrior {
         Warrior warrior = (Warrior) o;
         return health == warrior.health && attack == warrior.attack;
     }
+
 
     @Override
     public int hashCode() {
