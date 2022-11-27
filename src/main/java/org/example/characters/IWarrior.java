@@ -18,14 +18,16 @@ public interface IWarrior {
         int healthBefore = opponent.getHealth();
         opponent.receiveDamage(getAttack());
         int damageTaken = healthBefore - opponent.getHealth();
-        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-                + " for " + damageTaken + " damage |"
-                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
+//        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
+//                + " for " + damageTaken + " damage |"
+//                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
 
     }
 
     default void setHealth(int health){
         this.setHealth(health);
     }
+
+    void equip(Weapon weapon);
 
 }

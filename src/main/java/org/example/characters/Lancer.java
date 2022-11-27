@@ -22,4 +22,22 @@ public class Lancer extends Warrior {
             }
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+
+        Lancer lancer = (Lancer) o;
+
+        return PIERCING_POWER == lancer.PIERCING_POWER;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + PIERCING_POWER;
+        return result;
+    }
 }

@@ -82,8 +82,8 @@ public class Battle {
             var fighter1 = it1.next().getClass().getSimpleName();
             var fighter2 = it2.next().getClass().getSimpleName();
 
+            //System.out.println(army1);
             boolean fightResult = fight(it1.next(), it2.next());
-
 
             System.out.println("Fight result: Army One: " + fighter1
                     + " vs Army Two: " + fighter2
@@ -96,52 +96,38 @@ public class Battle {
 
 
     public static boolean straightFight(Army army1, Army army2) {
-        var it1 = army1.firstAliveIterator();
-        var it2 = army2.firstAliveIterator();
-
         while (true) {
-            var fighter1 = it1.next().getClass().getSimpleName();
-            var fighter2 = it2.next().getClass().getSimpleName();
-        }
-    }
+            var it1 = army1.iterator();
+            var it2 = army2.iterator();
+            String lineSeparator = System.getProperty("line.separator");
+            System.out.println("Army1:" + army1);
+            System.out.println("Army2:" + army2);
 
-
-    //  NOT WORKING
-    public static boolean battleNew(Army army1, Army army2) {
-        var it1 = army1.firstAliveIterator();
-        var it2 = army2.firstAliveIterator();
-
-        while (it1.hasNext() && it2.hasNext()) {
-            var fighter1 = it1.next().getClass().getSimpleName();
-            var fighter2 = it2.next().getClass().getSimpleName();
-
-            var warrior1 = it1.next();
-            var warrior2 = it2.next();
-            var warrior3 = it2.next();
-
-
-            while (true) {
-                if (warrior1 instanceof Lancer)
-                   // warrior3.receiveDamage(warrior1.hit(warrior2) / 2);
-
-                if (warrior2.isAlive()) {
-                    warrior2.hit(warrior1);
-
-                } else {
-                    System.out.println("Winner: " + warrior1.getClass().getSimpleName() + "       |Health: " + warrior1.getHealth());
-                    return true;
-                }
+            if (!it1.hasNext()) {
+                System.out.println("Battle winner Army Two");
+                return false;
+            }
+            if (!it2.hasNext()) {
+                System.out.println("Battle winner Army One");
+                return true;
             }
 
+            while (it1.hasNext() && it2.hasNext()) {
+//                var fighter1 = it1.next();
+//                var fighter2 = it2.next();
+//                var fighter1ClassName = fighter1.getClass().getSimpleName();
+//                var fighter2ClassName = fighter2.getClass().getSimpleName();
+                // boolean fightResult =
+                fight(it1.next(), it2.next());
 
-//            System.out.println("Fight result: Army One: " + fighter1
-//                    + " vs Army Two: " + fighter2
-//                    + " |        Winner: " + (fightResult ? "Army One " + fighter1 : "Army Two " + fighter2));
+
+//                System.out.println("Fight result: Army One: " + fighter1ClassName
+//                        + " vs Army Two: " + fighter2ClassName
+//                        + " |        Winner: " + (fightResult ? "Army One " + fighter1ClassName : "Army Two " + fighter2ClassName));
+            }
+            army1.removeDead();
+            army2.removeDead();
+            System.out.println("End of round!!!" +lineSeparator +lineSeparator +lineSeparator);
         }
-
-        System.out.println("Battle winner: " + (it1.hasNext() ? "Army One" : "Army Two"));
-        return it1.hasNext();
     }
-
-
 }

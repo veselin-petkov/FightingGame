@@ -24,11 +24,9 @@ public class Healer extends Warrior implements CanProcessCommand {
     public void heal(Army.WarriorInArmy warrior) {
 
         int healthBefore = warrior.getHealth();
-        //System.out.println("HEALTH BEFORE: " + healthBefore + "    INITIAL HEALTH " + warrior.getINITIALHEALTH());
         warrior.setHealth(Math.min(warrior.getINITIALHEALTH(), warrior.getHealth() + getHealingPower()));
         int healedAmount = warrior.getHealth() - healthBefore;
-       // System.out.println("HEALTH AFTER: "+ warrior.getHealth());
-        System.out.println(getClass().getSimpleName() + " heals the " + warrior.getClass().getSimpleName() + " for " + healedAmount);
+        //System.out.println(getClass().getSimpleName() + " heals the " + warrior.getClass().getSimpleName() + " for " + healedAmount);
 
 
     }

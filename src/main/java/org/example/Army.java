@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public class Army {
 
-   public static class WarriorInArmy implements IWarrior, HasWarriorBehind, CanProcessCommand {
+    public static class WarriorInArmy implements IWarrior, HasWarriorBehind, CanProcessCommand {
         IWarrior warrior;
         WarriorInArmy nextWarrior;
 
@@ -22,11 +22,11 @@ public class Army {
         @Override
         public void hit(IWarrior opponent) {
 
-          warrior.hit(opponent);
-          processCommand(CharacterHitCommand.HEAL,this);
+            warrior.hit(opponent);
+            processCommand(CharacterHitCommand.HEAL, this);
         }
 
-        public Warrior unwrap(){
+        public Warrior unwrap() {
             return (Warrior) warrior;
 
         }
@@ -36,14 +36,20 @@ public class Army {
             if (warrior instanceof CanProcessCommand war) {
                 war.processCommand(command, sender);
             }
-            if (nextWarrior != null) {
+            if (nextWarrior != null && nextWarrior.isAlive()) {
                 nextWarrior.processCommand(command, this);
             }
         }
 
-        public void setHealth(int health){
+        public void setHealth(int health) {
             warrior.setHealth(health);
         }
+
+        @Override
+        public void equip(Weapon weapon) {
+
+        }
+
         @Override
         public int getHealth() {
             return warrior.getHealth();
@@ -72,6 +78,22 @@ public class Army {
         private void setNextWarrior(WarriorInArmy nextWarrior) {
             this.nextWarrior = nextWarrior;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            WarriorInArmy that = (WarriorInArmy) o;
+
+            if (!warrior.equals(that.warrior)) return false;
+            return nextWarrior.equals(that.nextWarrior);
+        }
+
+        @Override
+        public String toString() {
+            return warrior.toString() + warrior.getHealth();
+        }
     }
 
     public Iterator<IWarrior> firstAliveIterator() {
@@ -93,12 +115,6 @@ public class Army {
                 return false;
             }
             return true;
-
-//            while (iterator.hasNext()) {
-//                champion = iterator.next();
-//                if (champion.isAlive()) return true;
-//            }
-//            return false;
         }
 
         @Override
@@ -106,15 +122,41 @@ public class Army {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
+            //return ((WarriorInArmy) champion).unwrap();
             return champion;
         }
     }
 
-    private Collection<IWarrior> troops = new ArrayList<>();
+    public Iterator<IWarrior> iterator() {
+        return new ArmyIterator();
+
+    }
+
+    class ArmyIterator implements Iterator<IWarrior> {
+        Iterator<IWarrior> iterator = troops.iterator();
+        IWarrior nextAlive;
+
+        @Override
+        public boolean hasNext() {
+            return iterator.hasNext();
+        }
+
+        @Override
+        public IWarrior next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+                nextAlive = iterator.next();
+            return ((WarriorInArmy) nextAlive).unwrap();
+            //return nextAlive;
+        }
+    }
+
+    private List<IWarrior> troops = new ArrayList<>();
     private WarriorInArmy lastWarrior;
 
 
-    void removeDead(){
+    public void removeDead() {
         troops.removeIf(iWarrior -> !iWarrior.isAlive());
     }
 
@@ -140,6 +182,12 @@ public class Army {
         return this;
     }
 
+
+    public void equipWarriorAtPosition(int position, Weapon weapon){
+       troops.get(position).equip(weapon);
+
+    }
+
     public Collection<IWarrior> getTroops() {
         return troops;
     }
@@ -147,6 +195,8 @@ public class Army {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName();
+        return "Army{" +
+                "troops=" + troops +
+                '}';
     }
 }

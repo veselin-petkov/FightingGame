@@ -30,6 +30,11 @@ public class Warrior implements IWarrior {
         this.health = health;
     }
 
+    @Override
+    public void equip(Weapon weapon) {
+
+    }
+
     public int getAttack() {
         return attack;
     }
