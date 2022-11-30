@@ -1,12 +1,8 @@
 package org.example.characters;
 
-public interface IWarrior {
+import org.example.characters.stats.Health;
 
-    int getHealth();
-
-    default boolean isAlive() {
-        return getHealth() > 0;
-    }
+public interface IWarrior extends Health {
 
     void receiveDamage(int attack);
 
@@ -18,9 +14,9 @@ public interface IWarrior {
         int healthBefore = opponent.getHealth();
         opponent.receiveDamage(getAttack());
         int damageTaken = healthBefore - opponent.getHealth();
-//        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-//                + " for " + damageTaken + " damage |"
-//                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
+        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
+                + " for " + damageTaken + " damage |"
+                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
 
     }
 
@@ -28,6 +24,6 @@ public interface IWarrior {
         this.setHealth(health);
     }
 
-    void equip(Weapon weapon);
+    void equipWeapon(Weapon weapon);
 
 }

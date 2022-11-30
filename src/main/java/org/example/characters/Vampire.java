@@ -1,6 +1,8 @@
 package org.example.characters;
 
-public class Vampire extends Warrior {
+import org.example.characters.stats.Vampirism;
+
+public class Vampire extends Warrior implements Vampirism {
 
     private int vampirism;
     private final int INITIALHEALTH = 40;
@@ -25,11 +27,10 @@ public class Vampire extends Warrior {
             leech = ((healthBeforeHit - opponent.getHealth()) * getVampirism() / 100);
         }
         this.heal(leech);
-
         System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
                 + " for " + (healthBeforeHit - opponent.getHealth()) + " damage |"
                 + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth() +
-                " Vampire leeched health: " + leech );
+                " Vampire leeched health: " + leech);
     }
 
     @Override
@@ -37,8 +38,18 @@ public class Vampire extends Warrior {
         return INITIALHEALTH;
     }
 
+    public void setVampirism(int vampirism) {
+        this.vampirism = vampirism;
+    }
+
     public int getVampirism() {
         return vampirism;
+    }
+
+    @Override
+    public void equipWeapon(Weapon weapon) {
+        super.equipWeapon(weapon);
+        setVampirism(Math.max(0, getVampirism() + weapon.getVampirism()));
     }
 
     @Override

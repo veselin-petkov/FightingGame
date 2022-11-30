@@ -1,11 +1,12 @@
 package org.example.characters;
 
 import org.example.Army;
+import org.example.characters.stats.HealingPower;
 import org.example.services.CanProcessCommand;
 import org.example.services.CharacterHitCommand;
 import org.example.services.Command;
 
-public class Healer extends Warrior implements CanProcessCommand {
+public class Healer extends Warrior implements HealingPower,CanProcessCommand {
 
     private int healingPower;
 
@@ -36,8 +37,18 @@ public class Healer extends Warrior implements CanProcessCommand {
        //do nothing because it has no attack points
     }
 
-    protected int getHealingPower() {
+    public int getHealingPower() {
         return healingPower;
+    }
+
+    public void setHealingPower(int healingPower) {
+        this.healingPower = healingPower;
+    }
+
+    @Override
+    public void equipWeapon(Weapon weapon) {
+        super.equipWeapon(weapon);
+        setHealingPower(Math.max(0,getHealingPower()+weapon.getHealingPower()));
     }
 
     @Override

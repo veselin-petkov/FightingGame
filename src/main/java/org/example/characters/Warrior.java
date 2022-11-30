@@ -31,8 +31,9 @@ public class Warrior implements IWarrior {
     }
 
     @Override
-    public void equip(Weapon weapon) {
-
+    public void equipWeapon(Weapon weapon) {
+        setHealth(getHealth() + weapon.getHealth());
+        setAttack(getAttack() + weapon.getAttack());
     }
 
     public int getAttack() {

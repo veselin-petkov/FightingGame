@@ -1,8 +1,10 @@
 package org.example.characters;
 
+import org.example.characters.stats.Defense;
+
 import java.util.Objects;
 
-public class Defender extends Warrior {
+public class Defender extends Warrior implements Defense {
 
     private int defense;
 
@@ -11,6 +13,11 @@ public class Defender extends Warrior {
     public Defender() {
         super(60, 3);
         this.defense = 2;
+    }
+
+    public Defender(int health, int attack, int defense) {
+        super(health, attack);
+        this.defense = defense;
     }
 
     @Override
@@ -24,6 +31,13 @@ public class Defender extends Warrior {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+
+
+    @Override
+    public void equipWeapon(Weapon weapon) {
+        super.equipWeapon(weapon);
+        setDefense(Math.max(0,getDefense()+ weapon.getDefense()));
     }
 
     @Override

@@ -46,8 +46,8 @@ public class Army {
         }
 
         @Override
-        public void equip(Weapon weapon) {
-
+        public void equipWeapon(Weapon weapon) {
+            warrior.equipWeapon(weapon);
         }
 
         @Override
@@ -184,11 +184,10 @@ public class Army {
 
 
     public void equipWarriorAtPosition(int position, Weapon weapon){
-       troops.get(position).equip(weapon);
-
+       troops.get(position).equipWeapon(weapon);
     }
 
-    public Collection<IWarrior> getTroops() {
+    public List<IWarrior> getTroops() {
         return troops;
     }
 

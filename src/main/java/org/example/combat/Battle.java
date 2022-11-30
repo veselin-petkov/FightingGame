@@ -1,9 +1,10 @@
 package org.example.combat;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.Army;
 import org.example.characters.IWarrior;
 import org.example.characters.Lancer;
-
+@Slf4j
 public class Battle {
 
     public static boolean fight(IWarrior warrior1, IWarrior warrior2) {
@@ -12,6 +13,7 @@ public class Battle {
             warrior1.hit(warrior2);
 
             if (warrior2.isAlive()) {
+                //log.atInfo().log("Hello");
                 warrior2.hit(warrior1);
             } else {
                 System.out.println("Winner: " + warrior1.getClass().getSimpleName() + "       |Health: " + warrior1.getHealth());
