@@ -3,7 +3,7 @@ package org.example;
 import org.example.characters.Warrior;
 import org.example.characters.Weapon;
 
-public class Main {
+public class Main { private static int ab;
     public static void main(String[] args) {
 
         int a = 3, b = 25;
@@ -18,5 +18,9 @@ public class Main {
 
         voin.equipWeapon(weapon);
         System.out.println(voin.getHealth());
+
+
+        System.out.println(ab);
     }
+
 }

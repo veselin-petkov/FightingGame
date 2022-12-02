@@ -5,7 +5,7 @@ import org.example.characters.stats.Vampirism;
 public class Vampire extends Warrior implements Vampirism {
 
     private int vampirism;
-    private final int INITIALHEALTH = 40;
+    private int INITIALHEALTH = 40;
 
 
     public Vampire() {

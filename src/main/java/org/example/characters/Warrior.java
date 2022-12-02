@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Warrior implements IWarrior {
     private int health;
     private int attack;
-    private final int INITIALHEALTH = 50;
+    private int INITIALHEALTH = 50;
 
 
     public Warrior() {
@@ -34,6 +34,7 @@ public class Warrior implements IWarrior {
     public void equipWeapon(Weapon weapon) {
         setHealth(getHealth() + weapon.getHealth());
         setAttack(getAttack() + weapon.getAttack());
+        INITIALHEALTH = getHealth();
     }
 
     public int getAttack() {

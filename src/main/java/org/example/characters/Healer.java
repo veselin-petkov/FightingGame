@@ -10,9 +10,11 @@ public class Healer extends Warrior implements HealingPower,CanProcessCommand {
 
     private int healingPower;
 
+
     public Healer() {
         super(60, 0);
         this.healingPower = 2;
+
     }
 
     @Override

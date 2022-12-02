@@ -171,6 +171,16 @@ public class Army {
     }
 
     Army addUnits(Supplier<Warrior> factory, int quantity) {
+        if (factory.get() instanceof Warlord){
+            WarriorInArmy wrapped = new WarriorInArmy(factory.get());
+            if (lastWarrior != null) {
+                lastWarrior.setNextWarrior(wrapped);
+            }
+            lastWarrior = wrapped;
+            troops.add(wrapped);
+            return this;
+        }
+
         for (int i = 0; i < quantity; i++) {
             WarriorInArmy wrapped = new WarriorInArmy(factory.get());
             if (lastWarrior != null) {
@@ -180,6 +190,17 @@ public class Army {
             troops.add(wrapped);
         }
         return this;
+    }
+
+    public void moveArmy(){
+        List<IWarrior> movedArmy = new ArrayList<>();
+        List lancers = troops.stream().filter(el -> el instanceof Lancer).toList();
+        List healers = troops.stream().filter(el -> el instanceof Healer).toList();
+        List fighters = troops.stream().filter(el -> !(el instanceof Lancer || el instanceof  Healer)).toList();
+
+
+
+
     }
 
 

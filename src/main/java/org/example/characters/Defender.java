@@ -8,7 +8,7 @@ public class Defender extends Warrior implements Defense {
 
     private int defense;
 
-    private final int INITIALHEALTH = 60;
+    private  int INITIALHEALTH = 60;
 
     public Defender() {
         super(60, 3);
