@@ -3,6 +3,7 @@ package org.example.characters;
 public class Lancer extends Warrior {
 
     int PIERCING_POWER = 50;
+    private int INITIALHEALTH = 50;
 
     public Lancer() {
         super(50, 6);
@@ -21,6 +22,11 @@ public class Lancer extends Warrior {
                 nextWarrior.receiveDamage(damageDone * PIERCING_POWER / 100);
             }
         }
+    }
+
+    @Override
+    public int getINITIALHEALTH() {
+        return INITIALHEALTH;
     }
 
     @Override

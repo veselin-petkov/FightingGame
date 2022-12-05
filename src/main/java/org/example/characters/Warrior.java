@@ -1,7 +1,9 @@
 package org.example.characters;
 
-import java.util.Objects;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.Objects;
+@Slf4j
 public class Warrior implements IWarrior {
     private int health;
     private int attack;
@@ -18,6 +20,17 @@ public class Warrior implements IWarrior {
         this.attack = attack;
     }
 
+    public void hit(IWarrior opponent) {
+        int healthBefore = opponent.getHealth();
+        opponent.receiveDamage(getAttack());
+        int damageTaken = healthBefore - opponent.getHealth();
+//        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
+//                + " for " + damageTaken + " damage |"
+//                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
+        log.atDebug().log("{} hits {} for damage| {}  Remaining Health: {}",
+                getClass().getSimpleName(),opponent.getClass().getSimpleName(),damageTaken,opponent.getClass().getSimpleName(),opponent.getHealth());
+
+    }
     public void receiveDamage(int attack) {
         setHealth(getHealth() - attack);
     }

@@ -1,7 +1,8 @@
 package org.example.characters;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.characters.stats.Vampirism;
-
+@Slf4j
 public class Vampire extends Warrior implements Vampirism {
 
     private int vampirism;
@@ -27,10 +28,13 @@ public class Vampire extends Warrior implements Vampirism {
             leech = ((healthBeforeHit - opponent.getHealth()) * getVampirism() / 100);
         }
         this.heal(leech);
-        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-                + " for " + (healthBeforeHit - opponent.getHealth()) + " damage |"
-                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth() +
-                " Vampire leeched health: " + leech);
+//        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
+//                + " for " + (healthBeforeHit - opponent.getHealth()) + " damage |"
+//                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth() +
+//                " Vampire leeched health: " + leech);
+        log.atDebug().log("{} hits {} for damage| {}  Remaining Health: {}  Vampire leeched health: {}",
+                getClass().getSimpleName(),opponent.getClass().getSimpleName(),(healthBeforeHit - opponent.getHealth())
+                ,opponent.getClass().getSimpleName(),opponent.getHealth(),leech);
     }
 
     @Override

@@ -96,18 +96,18 @@ class BattleTest {
         assertFalse(Battle.fight(army1, army2));
     }
 
-//    @Test
-//    @DisplayName("2. Battle: 2 Warrior vs 3 Warriors")
-//    void twoWarriorsVsThreeWarriors() {
-//        Army army1 = new Army();
-//        army1.addUnits(Warrior::new, 2);
-//
-//        Army army2 = new Army();
-//        army2.addUnits(Warrior::new, 3);
-//
-//        assertFalse(Battle.battle(army1, army2));
-//    }
-//
+    @Test
+    @DisplayName("2. Battle: 2 Warrior vs 3 Warriors")
+    void twoWarriorsVsThreeWarriors() {
+        Army army1 = new Army();
+        army1.addUnits(Warrior::new, 2);
+
+        Army army2 = new Army();
+        army2.addUnits(Warrior::new, 3);
+
+        assertFalse(Battle.fight(army1, army2));
+    }
+
 //    @Test
 //    @DisplayName("3. Battle: 5 Warrior vs 7 Warriors")
 //    void fiveWarriorsVsSevenWarriors() {

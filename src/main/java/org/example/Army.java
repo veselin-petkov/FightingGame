@@ -1,5 +1,6 @@
 package org.example;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.characters.*;
 import org.example.services.CanProcessCommand;
 import org.example.services.CharacterHitCommand;
@@ -9,10 +10,11 @@ import java.util.*;
 import java.util.function.Supplier;
 
 
+@Slf4j
 public class Army {
 
     public static class WarriorInArmy implements IWarrior, HasWarriorBehind, CanProcessCommand {
-        IWarrior warrior;
+        public IWarrior warrior;
         WarriorInArmy nextWarrior;
 
         public WarriorInArmy(IWarrior warrior) {
@@ -71,7 +73,7 @@ public class Army {
         }
 
         @Override
-        public IWarrior getNextBehind() {
+        public WarriorInArmy getNextBehind() {
             return nextWarrior;
         }
 
@@ -92,7 +94,7 @@ public class Army {
 
         @Override
         public String toString() {
-            return warrior.toString() + warrior.getHealth();
+            return warrior.getClass().getSimpleName();
         }
     }
 
@@ -103,18 +105,31 @@ public class Army {
 
     class FirstAliveIterator implements Iterator<IWarrior> {
         Iterator<IWarrior> iterator = troops.iterator();
-        IWarrior champion;
+        IWarrior champion = iterator.next();
 
         @Override
         public boolean hasNext() {
             if (champion == null || !champion.isAlive()) {
                 if (iterator.hasNext()) {
                     champion = iterator.next();
-                    return true;
+                    if (champion.isAlive()) {
+                        return true;
+                    }
                 }
                 return false;
             }
             return true;
+//            while (champion != null) {
+//                if (champion.isAlive()) {
+//                    System.out.println("true");
+//                    return true;
+//                } else {
+//                    if (iterator().hasNext()) {
+//                        champion = iterator.next();
+//                    }
+//                }
+//            }
+//            return false;
         }
 
         @Override
@@ -146,7 +161,7 @@ public class Army {
             if (!hasNext()) {
                 throw new NoSuchElementException();
             }
-                nextAlive = iterator.next();
+            nextAlive = iterator.next();
             return ((WarriorInArmy) nextAlive).unwrap();
             //return nextAlive;
         }
@@ -154,6 +169,7 @@ public class Army {
 
     private List<IWarrior> troops = new ArrayList<>();
     private WarriorInArmy lastWarrior;
+    public boolean haveWarlord = false;
 
 
     public void removeDead() {
@@ -162,22 +178,34 @@ public class Army {
 
 
     private void addUnits(Warrior warrior) {
+        if (warrior instanceof Warlord) {
+            WarriorInArmy wrapped = new WarriorInArmy(warrior);
+            if (lastWarrior != null) {
+                lastWarrior.setNextWarrior(wrapped);
+            }
+            lastWarrior = wrapped;
+            troops.add(wrapped);
+            haveWarlord = true;
+            return;
+        }
+
         WarriorInArmy wrapped = new WarriorInArmy(warrior);
         if (lastWarrior != null) {
             lastWarrior.setNextWarrior(wrapped);
         }
         lastWarrior = wrapped;
-        troops.add(warrior);
+        troops.add(wrapped);
     }
 
     Army addUnits(Supplier<Warrior> factory, int quantity) {
-        if (factory.get() instanceof Warlord){
+        if (factory.get() instanceof Warlord) {
             WarriorInArmy wrapped = new WarriorInArmy(factory.get());
             if (lastWarrior != null) {
                 lastWarrior.setNextWarrior(wrapped);
             }
             lastWarrior = wrapped;
             troops.add(wrapped);
+            haveWarlord = true;
             return this;
         }
 
@@ -192,26 +220,82 @@ public class Army {
         return this;
     }
 
-    public void moveArmy(){
-        List<IWarrior> movedArmy = new ArrayList<>();
-        List lancers = troops.stream().filter(el -> el instanceof Lancer).toList();
-        List healers = troops.stream().filter(el -> el instanceof Healer).toList();
-        List fighters = troops.stream().filter(el -> !(el instanceof Lancer || el instanceof  Healer)).toList();
+    public Army moveArmy() {
+        Army rearrangedArmy = new Army();
+        List<IWarrior> lancers = getTroops().stream().filter(el -> el.toString().equals("Lancer")).toList();
 
 
+        List<IWarrior> healers = troops.stream().filter(el -> el.toString().equals("Healer")).toList();
+        List<IWarrior> fighters = troops.stream().filter(el -> !(el.toString().equals("Lancer") || el.toString().equals("Healer") || el.toString().equals("Warlord"))).toList();
 
 
+        if (!lancers.isEmpty()) {
+            log.atDebug().log("Adding lancer first");
+            WarriorInArmy wrapper = (WarriorInArmy) lancers.get(0);
+            Warrior unwrapper = wrapper.unwrap();
+            rearrangedArmy.addUnits(unwrapper);
+
+        } else if (!fighters.isEmpty()) {
+            log.atDebug().log("There is no lancer so we get first fighter");
+            WarriorInArmy wrapper = (WarriorInArmy) fighters.get(0);
+            Warrior unwrapper = wrapper.unwrap();
+            rearrangedArmy.addUnits(unwrapper);
+        }
+        for (var el : healers) {
+            log.atDebug().log("Then we add healers");
+            WarriorInArmy wrapper = (WarriorInArmy) el;
+            Warrior unwrapper = wrapper.unwrap();
+            rearrangedArmy.addUnits(unwrapper);
+        }
+
+        if (lancers.size() != 1 && !lancers.isEmpty()) {
+            for (int i = 1; i < lancers.size(); i++) {
+                log.atDebug().log("Then the rest of the lancers ");
+                WarriorInArmy wrapper = (WarriorInArmy) lancers.get(i);
+                Warrior unwrapper = wrapper.unwrap();
+                rearrangedArmy.addUnits(unwrapper);
+            }
+            for (var el : fighters) {
+                log.atDebug().log("Then the rest of the fighters ");
+                WarriorInArmy wrapper = (WarriorInArmy) el;
+                Warrior unwrapper = wrapper.unwrap();
+                rearrangedArmy.addUnits(unwrapper);
+            }
+        } else if (lancers.isEmpty()) {
+            for (int i = 1; i < fighters.size(); i++) {
+                log.atDebug().log("If no lancers add fighters from second");
+                WarriorInArmy wrapper = (WarriorInArmy) fighters.get(i);
+                Warrior unwrapper = wrapper.unwrap();
+                rearrangedArmy.addUnits(unwrapper);
+            }
+        }
+
+        Optional<IWarrior> matchingObject = troops.stream().
+                filter(el -> el.toString().equals("Warlord")).findFirst();
+
+        if (!matchingObject.isEmpty()) {
+
+            log.atDebug().log("And finally warlord ");
+            WarriorInArmy wrapper = (WarriorInArmy) matchingObject.get();
+            Warrior unwrapper = wrapper.unwrap();
+            //System.out.println(unwrapper);
+            rearrangedArmy.addUnits(unwrapper);
+        }
+
+        this.troops = rearrangedArmy.troops;
+        this.lastWarrior = rearrangedArmy.lastWarrior;
+
+        return rearrangedArmy;
     }
 
 
-    public void equipWarriorAtPosition(int position, Weapon weapon){
-       troops.get(position).equipWeapon(weapon);
+    public void equipWarriorAtPosition(int position, Weapon weapon) {
+        troops.get(position).equipWeapon(weapon);
     }
 
     public List<IWarrior> getTroops() {
         return troops;
     }
-
 
     @Override
     public String toString() {

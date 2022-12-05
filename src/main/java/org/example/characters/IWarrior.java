@@ -10,15 +10,8 @@ public interface IWarrior extends Health {
 
     int getAttack();
 
-    default void hit(IWarrior opponent) {
-        int healthBefore = opponent.getHealth();
-        opponent.receiveDamage(getAttack());
-        int damageTaken = healthBefore - opponent.getHealth();
-        System.out.println(getClass().getSimpleName() + " hits " + opponent.getClass().getSimpleName()
-                + " for " + damageTaken + " damage |"
-                + opponent.getClass().getSimpleName() + " Remaining Health: " + opponent.getHealth());
+    void hit(IWarrior opponent);
 
-    }
 
     default void setHealth(int health){
         this.setHealth(health);

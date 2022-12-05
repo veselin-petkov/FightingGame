@@ -43,13 +43,4 @@ class StraightFightTest {
         );
     }
 
-    @Test
-    @DisplayName("Test name")
-    void methodName() {
-
-       Army army1 = new Army().addUnits(Lancer::new, 5).addUnits(Vampire::new, 3).addUnits(Warrior::new, 4).addUnits(Defender::new, 2);
-        Army army2 = new Army().addUnits(Warrior::new, 4).addUnits(Defender::new, 4).addUnits(Vampire::new, 6).addUnits(Lancer::new, 5);
-
-        assertTrue(Battle.straightFight(army1, army2));
-    }
 }
